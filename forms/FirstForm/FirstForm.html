@@ -1,0 +1,149 @@
+<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name">
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label for="birthday">Birthday</label>
+                <input type="text" id="birthday" name="birthday" class="form-control" mask="00/00/0000" placeholder="Enter your birthday">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="form-group">
+                <label for="cpf">CPF</label>
+                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="Enter your CPF" mask="000.000.000-00">
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email">
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="form-group">
+                <label for="dataset">Dataset</label>
+                <select name="dataset" id="dataset" dataset="colleague" datasetkey="colleaguePK.colleagueId" datasetvalue="colleagueName" class="form-control"></select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-primary btn-sm" type="button" onclick="wdkAddChild('tb_children')">
+                <i class="flaticon flaticon-add-plus icon-sm"></i> Adicionar
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <table tablename="tb_children" class="table table-condensed table-hover" noaddbutton="true" nodeletebutton="true" addbuttonlabel="Adicionar filho" addbuttonclass="btn btn-primary btn-sm" customFnDelete="fnCustomDelete(this)">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="number" min="1" name="component_id" id="component_id" class="form-control input-sm" placeholder="Enter Id">
+                        </td>
+                        <td>
+                            <input type="text" name="component_description" id="component_description" class="form-control input-sm" placeholder="Enter Description">
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-default update-description-field">
+                                    <i class="flaticon flaticon-code icon-sm"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-danger" onclick="fnWdkRemoveChild(this)">
+                                    <i class="flaticon flaticon-trash icon-sm"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="form-group">
+                <input
+                    type="zoom" id="colleagueZoom" name="colleagueZoom"
+                    data-zoom="{
+                        'displayKey': 'colleagueName',
+                        'datasetId': 'colleague',
+                        'maximumSelectionLength': '2',
+                        'placeholder': 'Choose the user',
+                        'fields': [
+                            {
+                                'field': 'colleagueId',
+                                'label': 'ID'
+                            },
+                            {
+                                'field': 'colleagueName',
+                                'label': 'Name',
+                                'standard': 'true'
+                            },
+                            {
+                                'field': 'login',
+                                'label': 'Login'
+                            }
+                        ]
+                    }">
+                <input type="hidden" id="colleagueId" name="colleagueId">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="form-group">
+                <label for="zipcode">Zip Code</label>
+                <input type="text" id="zipcode" name="zipcode" class="form-control" mask="00000-000" placeholder="Enter your zip code">
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" class="form-control" placeholder="Enter your address">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="form-group">
+                <label for="cnpj">CNPJ</label>
+                <input type="text" id="cnpj" name="cnpj" class="form-control" mask="00.000.000/0000-00" placeholder="Enter your CNPJ">
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="enterpriseName">Enterprise name</label>
+                <input type="text" id="enterpriseName" name="enterpriseName" class="form-control" placeholder="Enter your enterprise name">
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+</body>
+</html>
